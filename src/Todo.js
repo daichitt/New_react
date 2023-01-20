@@ -1,10 +1,10 @@
-import './App.css';
+import React from 'react'
 
-function App() {
+const Todo = () => {
   return (
-    <div className="App">Todo list 
-    </div>
-  );
+    <div>Todo</div>
+  )
 }
 
-export default App;
+// allowed to use outside 
+export default Todo

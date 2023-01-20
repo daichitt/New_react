@@ -1,8 +1,9 @@
-import './App.css';
+import Todo from './Todo';
 
 function App() {
   return (
-    <div className="App">hello react 
+    <div>
+      <Todo />
     </div>
   );
 }
