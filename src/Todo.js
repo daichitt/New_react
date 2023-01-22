@@ -1,10 +1,9 @@
 import React from 'react'
 
-const Todo = () => {
+export const Todo = ({ todo }) => {
   return (
-    <div>Todo</div>
+    <div>{todo.name}</div>
   )
 }
 
-// allowed to use outside 
 export default Todo

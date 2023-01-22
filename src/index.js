@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Todo from './Todo';
+import App from './App';
 
 // https://reactjs.org/docs/strict-mode.html
 // <React.StrictMode> is a tool for highlighting problems
@@ -9,6 +9,6 @@ import Todo from './Todo';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Todo />
+    <App />
   </React.StrictMode>
 );
