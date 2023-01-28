@@ -1,8 +1,14 @@
 import React from 'react'
 
-export const Todo = ({ todo }) => {
+const Todo = ({ todo }) => {
+  // console.log("Todoコンポーネント内のtodoは" , todo , "です")
   return (
-    <div>{todo.name}</div>
+    <div>
+      <label>Task number #{todo.id}
+        <input type="checkbox" checked={todo.completed} readOnly></input>
+      </label>
+      {todo.name}
+      </div>
   )
 }
 
