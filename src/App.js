@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import TodoList from './TodoList';
+import uuid from 'react-uuid';
 
 function App() {
   // const [状態変数, 状態を変更するための関数] = useState(状態の初期値);
@@ -21,7 +22,7 @@ function App() {
     const cureent = TodoNameRef.current;
 
     setTodos((prevTodos) => {
-      return [...prevTodos, {id : count, name: name, completed: false}];
+      return [...prevTodos, {id : uuid(), name: name, completed: false}];
     });
     TodoNameRef.current.value = null;
   }
