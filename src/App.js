@@ -19,22 +19,27 @@ function App() {
     setCount(count + 1);
 
     const name = TodoNameRef.current.value;
-    const cureent = TodoNameRef.current;
 
     setTodos((prevTodos) => {
       return [...prevTodos, {id : uuid(), name: name, completed: false}];
     });
     TodoNameRef.current.value = null;
   }
+  const toggleTodo = (id) => {
+    const newtodos = [...todos];
+    const todo = newtodos.find((todo) => todo.id === id);
+    todo.completed = !todo.completed;
+    setTodos(newtodos);
+  }
 
   return (
     <div>
       <>
-      <TodoList todos={todos}/>
+      <TodoList todos={todos} toggleTodo={toggleTodo} />
       <input type="text" ref={TodoNameRef} />
       <button onClick={handleAddTodo}>Add Task</button>
       <button>Delete Task</button>
-      <div>Remaining tasks : </div>
+      <div>Remaining tasks : {todos.filter((todos) => !todos.completed).length}</div>
       </>
     </div>
   );
