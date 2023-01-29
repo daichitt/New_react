@@ -5,8 +5,6 @@ import uuid from 'react-uuid';
 function App() {
   // const [状態変数, 状態を変更するための関数] = useState(状態の初期値);
   const [todos, setTodos] = useState([
-    // {id : 1, name: "Todo1", completed: true},
-    {id : 1, name: "Todo1", completed: true},
   ])
 
   // count Todo list
@@ -19,11 +17,16 @@ function App() {
     setCount(count + 1);
 
     const name = TodoNameRef.current.value;
-
+    if(name == "") return;
     setTodos((prevTodos) => {
       return [...prevTodos, {id : uuid(), name: name, completed: false}];
     });
     TodoNameRef.current.value = null;
+  }
+
+  const handleClear = (e) => {
+    const newTodos = todos.filter((todos) => !todos.completed);
+    setTodos(newTodos);
   }
   const toggleTodo = (id) => {
     const newtodos = [...todos];
@@ -38,7 +41,7 @@ function App() {
       <TodoList todos={todos} toggleTodo={toggleTodo} />
       <input type="text" ref={TodoNameRef} />
       <button onClick={handleAddTodo}>Add Task</button>
-      <button>Delete Task</button>
+      <button onClick={handleClear}>Delete Task</button>
       <div>Remaining tasks : {todos.filter((todos) => !todos.completed).length}</div>
       </>
     </div>
